@@ -9,7 +9,7 @@ public class HomeController {
 	@RequestMapping("/")
 	public String redirectToFlow() {
 		//这里返回的名字是流程id
-		return "redirect:/pizza"; 
+		return "redirect:/test"; 
 	}
 	
 }

@@ -17,10 +17,20 @@
   <flow:flow-executor id="flowExecutor" />
 
   <!-- The registry of executable flow definitions -->
+  
   <flow:flow-registry id="flowRegistry" base-path="/WEB-INF/flows">
      <flow:flow-location-pattern value="/**/*-flow.xml" />
   </flow:flow-registry>
-
+  
+  <!-- 如下这种方式也可以定义流程
+  	并且 flow:flow-location 里面的id 就是subflow的值
+  	比如 下面流程 id="xxxx" 可以当做别的流程的子流程 subflow="xxxx"  
+  -->
+<!--  <flow:flow-registry id="flowRegistry">
+     <flow:flow-location id="test" path="/WEB-INF/flows/pizza/pizza-flow.xml"></flow:flow-location>
+     <flow:flow-location id="xxxx" path="/WEB-INF/flows/pizza/customer/customer-flow.xml"></flow:flow-location>
+  </flow:flow-registry> -->
+  
   <!--Maps request paths to flows in the flowRegistry-->
   <bean class="org.springframework.webflow.mvc.servlet.FlowHandlerMapping">
     <property name="flowRegistry" ref="flowRegistry" />

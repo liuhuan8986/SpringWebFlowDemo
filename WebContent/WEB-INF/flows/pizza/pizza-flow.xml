@@ -6,11 +6,17 @@
 
     <var name="order" class="liuhuan.model.Order"/>
     
-    <!-- Customer -->
-    <subflow-state id="customer" subflow="pizza/customer">
+    <!-- Customer  subflow 的值就是流程id -->
+ <!--    <subflow-state id="customer" subflow="xxxx">
+      <input name="order" value="order"/>
+      <transition on="customerReady" to="order" />
+    </subflow-state> -->
+    
+   <subflow-state id="customer" subflow="pizza/customer">
       <input name="order" value="order"/>
       <transition on="customerReady" to="order" />
     </subflow-state>
+    
     
     <!-- Order -->
     <subflow-state id="order" subflow="pizza/order">
